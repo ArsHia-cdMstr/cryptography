@@ -1,11 +1,8 @@
-import array
-
-
 class MapCharToInt:
     def __init__(self, string):
         self.string = string
 
-    def char_to_int(char):
+    def char_to_int(self,char):
         if ord('A') < ord(char) < ord('Z'):
             return int(ord(char) - 65)
 
@@ -31,6 +28,7 @@ class MapCharToInt:
             return int(56)
 
     def get(self):
-        a = array.array
+        a = list()
         for char in self.string:
             a.append(self.char_to_int(char))
+        return a

@@ -2,11 +2,11 @@ class MapCharToInt:
     def __init__(self, string):
         self.string = string
 
-    def char_to_int(self,char):
-        if ord('A') < ord(char) < ord('Z'):
+    def char_to_int(self, char):
+        if ord('A') <= ord(char) <= ord('Z'):
             return int(ord(char) - 65)
 
-        if ord('a') < ord(char) < ord('z'):
+        if ord('a') <= ord(char) <= ord('z'):
             return int(ord(char) - 71)
 
         if ord(char) == ord(' '):

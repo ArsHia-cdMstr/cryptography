@@ -35,3 +35,5 @@ def bubbleSort(arr):
 
         if not swapped:
             break
+
+    return arr

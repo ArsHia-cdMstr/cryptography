@@ -5,7 +5,9 @@ from part5 import AbsoluteValue
 from part2 import section2
 
 if __name__ == '__main__':
-    a = MapCharToInt.MapCharToInt('Hello DS').get()
+    file_r = open('file.txt', "r")  # read
+
+    a = MapCharToInt.MapCharToInt(file_r.read()).get()
     print(a)
 
     b = section2(a)
@@ -22,3 +24,6 @@ if __name__ == '__main__':
 
     f = placement(e)
     print(f)
+
+    file_w = open('file_w.txt', "w")  # write
+    file_w.write(str(f))

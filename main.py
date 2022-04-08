@@ -3,6 +3,7 @@ from sort import bubbleSort, sort
 from placement import placement
 from part5 import AbsoluteValue
 from part2 import section2
+from IntToChar import intToChar
 
 if __name__ == '__main__':
     file_r = open('file.txt', "r")  # read
@@ -25,5 +26,8 @@ if __name__ == '__main__':
     f = placement(e)
     print(f)
 
+    g = intToChar(f)
+    print(g)
+
     file_w = open('file_w.txt', "w")  # write
-    file_w.write(str(f))
+    file_w.write(str(g))

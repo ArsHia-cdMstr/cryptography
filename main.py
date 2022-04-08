@@ -1,14 +1,16 @@
-import MapCharToInt
-from sort import bubbleSort, sort
-from placement import placement
-from part5 import AbsoluteValue
-from part2 import section2
 from IntToChar import intToChar
+from MapCharToInt import MapCharToInt
+from part2 import section2
+from part5 import AbsoluteValue
+from placement import placement
+from sort import sort, bubbleSort
+from ui import ui
 
-if __name__ == '__main__':
-    file_r = open('file.txt', "r")  # read
 
-    a = MapCharToInt.MapCharToInt(file_r.read()).get()
+def processing(filename):
+    file_r = open(filename, "r")  # read
+
+    a = MapCharToInt(file_r.read()).get()
     print(a)
 
     b = section2(a)
@@ -31,3 +33,9 @@ if __name__ == '__main__':
 
     file_w = open('file_w.txt', "w")  # write
     file_w.write(str(g))
+
+    return g
+
+
+if __name__ == '__main__':
+    ui()

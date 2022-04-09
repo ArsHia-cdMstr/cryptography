@@ -2,48 +2,40 @@ import sys
 
 from PyQt5.QtWidgets import QApplication, QFileDialog, QMainWindow, QPushButton, QMessageBox
 
-from IntToChar import intToChar
-from MapCharToInt import MapCharToInt
-from part2 import section2
-from part5 import AbsoluteValue
+from Map import Map
+from MathOperation import MathOperation
+from Sort import Sort
 from placement import placement
-from sort import sort, bubbleSort
 
 
 def processing(filename):
     file_r = open(filename, "r")  # read
 
-    a = MapCharToInt(file_r.read()).get()
+    a = Map().getInt(file_r.read())
     print(a)
 
-    b = section2(a)
+    b = MathOperation().functionX(a)
     print(b)
 
-    c = sort(b)
+    c = Sort(b).sort_by_sign()
     print(c)
 
-    d = bubbleSort(c)
+    d = Sort(b).bubbleSort()
     print(d)
 
-    e = AbsoluteValue(d)
+    e = MathOperation().AbsoluteValue(d)
     print(e)
 
     f = placement(e)
     print(f)
 
-    g = intToChar(f)
+    g = Map().getString(f)
     print(g)
 
     file_w = open('file_w.txt', "w")  # write
-    file_w.write(str(g))
+    file_w.write(g)
 
     return g
-
-
-def dialog():
-    file, check = QFileDialog.getOpenFileName(None, "selection file", "", "Text Files (*.txt)")
-    result = processing(file)
-    return result
 
 
 def ui():
@@ -61,7 +53,8 @@ def ui():
     button.move((960 - 200) / 2, (432 - 50) / 2)
 
     def on_button_clicked():
-        result = dialog()
+        file, check = QFileDialog.getOpenFileName(None, "selection file", "", "Text Files (*.txt)")
+        result = processing(file)
 
         alert = QMessageBox()
         alert.setText("Encryption was successful\n"
@@ -77,6 +70,4 @@ def ui():
 
 
 if __name__ == '__main__':
-
     ui()
-
